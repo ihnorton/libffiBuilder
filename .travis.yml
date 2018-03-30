@@ -16,11 +16,10 @@ env:
 matrix:
     include:
         - os: osx
-          osx_image: osx_image: xcode9.3beta
+          osx_image: xcode9.3beta
           language: julia
           julia: 0.6
           env: TARGET=x86_64-apple-darwin14
-
 
 # Before anything else, get the latest versions of things
 before_script:
