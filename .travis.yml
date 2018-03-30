@@ -1,8 +1,5 @@
 language: julia
-os:
-  - osx
-julia:
-  - 0.6
+
 notifications:
   email: false
 git:
@@ -15,8 +12,15 @@ env:
   global:
     - BINARYBUILDER_DOWNLOADS_CACHE=downloads
     - BINARYBUILDER_AUTOMATIC_APPLE=true
-    - TARGET=x86_64-apple-darwin14
-sudo: required
+
+matrix:
+    include:
+        - os: osx
+          osx_image: osx_image: xcode9.3beta
+          language: julia
+          julia: 0.6
+          env: TARGET=x86_64-apple-darwin14
+
 
 # Before anything else, get the latest versions of things
 before_script:
